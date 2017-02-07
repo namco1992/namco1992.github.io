@@ -1,1 +1,367 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="description" contebt="namco's blog | python"><meta name="viewport" content="width=device-width, initial-scale=1"><title>翻译 · namco's blog</title><link rel="short icon" href="/favicon.ico"><link rel="stylesheet" href="/./css/style.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono"></head><body><div id="main"><header><a href="/." class="logo">namco's blog</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/tags/" target="_self" class="active">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">About</a></li></ul></header><section id="container"><div class="archive"><h2 class="tag">翻译</h2><div class="post-item"><div class="post-time tag">Dec 9, 2015</div><a href="/2015-12-09-deploying-a-django-app-with-no-downtime.html" class="post-link">不停机条件下部署 Django 应用</a></div><div class="post-item"><div class="post-time tag">Nov 21, 2015</div><a href="/2015-11-21-realization-of-integer-object-of-python.html" class="post-link">深入 Python 整数对象的实现</a></div><div class="post-item"><div class="post-time tag">Nov 19, 2015</div><a href="/2015-11-19-Python-running-patch-method.html" class="post-link">Python 的运行时方法补丁技术</a></div></div><div class="paginator"></div></section><footer><div class="copyright"><p>&copy;2015-2016<span class="heart"><i class="fa fa-heart"></i></span><a href="http://yoursite.com" class="author">namco</a></p></div><label id="back2top"><i class="fa fa-chevron-up"></i></label></footer></div></body><script src="/js/back2top.js"></script></html>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="namco's blog | python"/>
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="namco's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.2.x" />
+
+
+
+<link rel="canonical" href="http://namco1992.github.io/tags/翻译/"/>
+
+
+<meta name="description" content="namco&apos;s blog | python">
+<meta property="og:type" content="website">
+<meta property="og:title" content="namco's blog">
+<meta property="og:url" content="http://namco1992.github.io/tags/翻译/index.html">
+<meta property="og:site_name" content="namco's blog">
+<meta property="og:description" content="namco&apos;s blog | python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="namco's blog">
+<meta name="twitter:description" content="namco&apos;s blog | python">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.2.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    search: {
+      enable: true,
+      path: "/search.xml",
+    },
+    navbar: {
+      enable: true
+    },
+    fancybox: {
+      enable: true
+    },
+    toc: {
+      enable: true
+    },
+  };
+</script>
+
+
+
+  
+
+
+
+    <title>
+  
+    翻译 · namco's blog
+  
+</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">namco's blog</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">namco's blog</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/tags">
+        
+        
+          Tags
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/about">
+        
+        
+          About
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="archive" class="archive">
+    
+      
+        <div class="archive-title tag">
+          <h2 class="archive-name">翻译</h2>
+        </div>
+      
+    
+
+    
+      
+      
+      <div class="archive-post">
+        <span class="archive-post-time">
+          
+            2015-12-09
+          
+        </span>
+        <span class="archive-post-title">
+          <a href="/2015-12-09-deploying-a-django-app-with-no-downtime.html" class="archive-post-link">
+            不停机条件下部署 Django 应用
+          </a>
+        </span>
+      </div>
+    
+      
+      
+      <div class="archive-post">
+        <span class="archive-post-time">
+          
+            2015-11-21
+          
+        </span>
+        <span class="archive-post-title">
+          <a href="/2015-11-21-realization-of-integer-object-of-python.html" class="archive-post-link">
+            深入 Python 整数对象的实现
+          </a>
+        </span>
+      </div>
+    
+      
+      
+      <div class="archive-post">
+        <span class="archive-post-time">
+          
+            2015-11-19
+          
+        </span>
+        <span class="archive-post-title">
+          <a href="/2015-11-19-Python-running-patch-method.html" class="archive-post-link">
+            Python 的运行时方法补丁技术
+          </a>
+        </span>
+      </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+    
+  </nav>
+
+
+
+          </div>
+          
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:namco1992@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/namco1992" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">namco</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = '';
+        this.page.identifier = 'tags/翻译/index.html';
+        this.page.title = '';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//namcos-blog.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.2.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.2.x"></script>
+
+  </body>
+</html>

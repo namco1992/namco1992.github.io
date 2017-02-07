@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://namco1992.github.io/"/>
   <updated>2016-06-12T14:18:18.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://namco1992.github.io/</id>
   
   <author>
     <name>namco</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>如何优雅地通过字符串动态调用函数</title>
-    <link href="http://yoursite.com/2016-06-12-how-to-call-function-by-string.html"/>
-    <id>http://yoursite.com/2016-06-12-how-to-call-function-by-string.html</id>
+    <link href="http://namco1992.github.io/2016-06-12-how-to-call-function-by-string.html"/>
+    <id>http://namco1992.github.io/2016-06-12-how-to-call-function-by-string.html</id>
     <published>2016-06-12T14:07:35.000Z</published>
     <updated>2016-06-12T14:18:18.000Z</updated>
     
@@ -39,16 +39,16 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="http://namco1992.github.io/tags/python/"/>
     
-      <category term="trick" scheme="http://yoursite.com/tags/trick/"/>
+      <category term="trick" scheme="http://namco1992.github.io/tags/trick/"/>
     
   </entry>
   
   <entry>
     <title>从 Flask 中视图函数说开来</title>
-    <link href="http://yoursite.com/2016-06-12-tips-about-flask-view-function.html"/>
-    <id>http://yoursite.com/2016-06-12-tips-about-flask-view-function.html</id>
+    <link href="http://namco1992.github.io/2016-06-12-tips-about-flask-view-function.html"/>
+    <id>http://namco1992.github.io/2016-06-12-tips-about-flask-view-function.html</id>
     <published>2016-06-12T13:52:26.000Z</published>
     <updated>2016-06-12T13:58:05.000Z</updated>
     
@@ -96,16 +96,16 @@
     </summary>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://namco1992.github.io/tags/Python/"/>
     
-      <category term="flask" scheme="http://yoursite.com/tags/flask/"/>
+      <category term="flask" scheme="http://namco1992.github.io/tags/flask/"/>
     
   </entry>
   
   <entry>
     <title>不停机条件下部署 Django 应用</title>
-    <link href="http://yoursite.com/2015-12-09-deploying-a-django-app-with-no-downtime.html"/>
-    <id>http://yoursite.com/2015-12-09-deploying-a-django-app-with-no-downtime.html</id>
+    <link href="http://namco1992.github.io/2015-12-09-deploying-a-django-app-with-no-downtime.html"/>
+    <id>http://namco1992.github.io/2015-12-09-deploying-a-django-app-with-no-downtime.html</id>
     <published>2015-12-08T16:29:07.000Z</published>
     <updated>2016-06-07T13:35:46.000Z</updated>
     
@@ -169,16 +169,16 @@
     </summary>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://namco1992.github.io/tags/Python/"/>
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://namco1992.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
   <entry>
     <title>深入 Python 整数对象的实现</title>
-    <link href="http://yoursite.com/2015-11-21-realization-of-integer-object-of-python.html"/>
-    <id>http://yoursite.com/2015-11-21-realization-of-integer-object-of-python.html</id>
+    <link href="http://namco1992.github.io/2015-11-21-realization-of-integer-object-of-python.html"/>
+    <id>http://namco1992.github.io/2015-11-21-realization-of-integer-object-of-python.html</id>
     <published>2015-11-21T14:31:45.000Z</published>
     <updated>2016-06-07T13:35:14.000Z</updated>
     
@@ -227,16 +227,16 @@
     </summary>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://namco1992.github.io/tags/Python/"/>
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://namco1992.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
   <entry>
     <title>Python 的运行时方法补丁技术</title>
-    <link href="http://yoursite.com/2015-11-19-Python-running-patch-method.html"/>
-    <id>http://yoursite.com/2015-11-19-Python-running-patch-method.html</id>
+    <link href="http://namco1992.github.io/2015-11-19-Python-running-patch-method.html"/>
+    <id>http://namco1992.github.io/2015-11-19-Python-running-patch-method.html</id>
     <published>2015-11-19T13:56:14.000Z</published>
     <updated>2016-06-07T13:40:13.000Z</updated>
     
@@ -267,9 +267,9 @@
     </summary>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://namco1992.github.io/tags/Python/"/>
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://namco1992.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   

@@ -1,15 +1,527 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="description" contebt="namco's blog | python"><meta name="viewport" content="width=device-width, initial-scale=1"><title>namco's blog</title><link rel="short icon" href="/favicon.ico"><link rel="stylesheet" href="/./css/style.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono"></head><body><div id="main"><header><a href="/." class="logo">namco's blog</a><ul class="nav"><li class="nav-link"><a href="/" class="active">Home</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/tags/" target="_self">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">About</a></li></ul></header><section id="container"><ul class="home"><li class="post-item"><article class="post"><h1 class="post-title"><a href="/2016-06-12-how-to-call-function-by-string.html" class="post-link">如何优雅地通过字符串动态调用函数</a></h1><span class="post-time">Jun 12, 2016</span><div class="post-content"><p>前一段时间为公司的业务写了一个非常轻量级的监控平台，最近抽出空来整理一下思路。首先从一个小 trick 开始吧。</p>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="namco's blog | python"/>
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="namco's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.2.x" />
+
+
+
+<link rel="canonical" href="http://namco1992.github.io/"/>
+
+
+<meta name="description" content="namco&apos;s blog | python">
+<meta property="og:type" content="website">
+<meta property="og:title" content="namco's blog">
+<meta property="og:url" content="http://namco1992.github.io/index.html">
+<meta property="og:site_name" content="namco's blog">
+<meta property="og:description" content="namco&apos;s blog | python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="namco's blog">
+<meta name="twitter:description" content="namco&apos;s blog | python">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.2.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    search: {
+      enable: true,
+      path: "/search.xml",
+    },
+    navbar: {
+      enable: true
+    },
+    fancybox: {
+      enable: true
+    },
+    toc: {
+      enable: true
+    },
+  };
+</script>
+
+
+
+  
+
+
+
+    <title> namco's blog </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">namco's blog</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">namco's blog</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/tags">
+        
+        
+          Tags
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/about">
+        
+        
+          About
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016-06-12-how-to-call-function-by-string.html">如何优雅地通过字符串动态调用函数</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jun 12, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>前一段时间为公司的业务写了一个非常轻量级的监控平台，最近抽出空来整理一下思路。首先从一个小 trick 开始吧。</p>
 <h2 id="scrapy-中的-item-pipeline"><a href="#scrapy-中的-item-pipeline" class="headerlink" title="scrapy 中的 item pipeline"></a>scrapy 中的 item pipeline</h2><p>我写的监控平台的 pipeline 机制主要模仿了 scrapy 中的 item pipeline。 在 scrapy 的配置文件中，pipeline 的配置表示方式是这样的：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">'myproject.pipelines.FirstPipeline'</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="string">'myproject.pipelines.SecondPipeline'</span>: <span class="number">800</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>ITEM_PIPELINES</code>作为一个字典，<code>key</code>就是处理类的路径，<code>value</code>值的大小则代表了该 pipeline 的优先级。<br></div><a href="/2016-06-12-how-to-call-function-by-string.html" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h1 class="post-title"><a href="/2016-06-12-tips-about-flask-view-function.html" class="post-link">从 Flask 中视图函数说开来</a></h1><span class="post-time">Jun 12, 2016</span><div class="post-content"><p>自从夸下海口从朋友那里接下私活，就开始抽空看看有关 Flask 的东西。还记得刚入职的时候学习 Django，只是 Tutorial 那几个小教程就翻来覆去看了几遍，最终还是有些一头雾水，又觉得过于繁杂，索性就算了。这次也趁此机会把 Flask 上手一下，也越发理解了为什么有人说“自定义的 Flask 最终也会变成一个 Django”，可能后面有时间再去把 Django 拾起来就没那么困难了。</p>
-<p>上面都是题外话，下面需要说的是一个关于 Flask 的一个小细节，首先我们需要明确一下在 Flask 中路由功能的实现过程是怎样的。<br></div><a href="/2016-06-12-tips-about-flask-view-function.html" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h1 class="post-title"><a href="/2015-12-09-deploying-a-django-app-with-no-downtime.html" class="post-link">不停机条件下部署 Django 应用</a></h1><span class="post-time">Jun 12, 2016</span><div class="post-content"><blockquote>
+<p><code>ITEM_PIPELINES</code>作为一个字典，<code>key</code>就是处理类的路径，<code>value</code>值的大小则代表了该 pipeline 的优先级。<br>
+          <div class="read-more">
+            <a href="/2016-06-12-how-to-call-function-by-string.html" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016-06-12-tips-about-flask-view-function.html">从 Flask 中视图函数说开来</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jun 12, 2016
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>自从夸下海口从朋友那里接下私活，就开始抽空看看有关 Flask 的东西。还记得刚入职的时候学习 Django，只是 Tutorial 那几个小教程就翻来覆去看了几遍，最终还是有些一头雾水，又觉得过于繁杂，索性就算了。这次也趁此机会把 Flask 上手一下，也越发理解了为什么有人说“自定义的 Flask 最终也会变成一个 Django”，可能后面有时间再去把 Django 拾起来就没那么困难了。</p>
+<p>上面都是题外话，下面需要说的是一个关于 Flask 的一个小细节，首先我们需要明确一下在 Flask 中路由功能的实现过程是怎样的。<br>
+          <div class="read-more">
+            <a href="/2016-06-12-tips-about-flask-view-function.html" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015-12-09-deploying-a-django-app-with-no-downtime.html">不停机条件下部署 Django 应用</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Dec 9, 2015
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
 <p>本文由 伯乐在线 - Namco 翻译，jasper 校稿。未经许可，禁止转载！<br>英文出处：healthchecks。欢迎加入翻译组。</p>
 </blockquote>
-<p>当我们上线新的服务应用时，经常不得不重启Web服务器以完成部署。但这会对用户造成一定影响，特别是服务器处于繁忙状态时，问题更严重。本文中，作者将针对这一问题，讲述其如何在不停机条件下部署Django应用。<br></div><a href="/2015-12-09-deploying-a-django-app-with-no-downtime.html" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h1 class="post-title"><a href="/2015-11-21-realization-of-integer-object-of-python.html" class="post-link">深入 Python 整数对象的实现</a></h1><span class="post-time">Jun 12, 2016</span><div class="post-content"><blockquote>
+<p>当我们上线新的服务应用时，经常不得不重启Web服务器以完成部署。但这会对用户造成一定影响，特别是服务器处于繁忙状态时，问题更严重。本文中，作者将针对这一问题，讲述其如何在不停机条件下部署Django应用。<br>
+          <div class="read-more">
+            <a href="/2015-12-09-deploying-a-django-app-with-no-downtime.html" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015-11-21-realization-of-integer-object-of-python.html">深入 Python 整数对象的实现</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 21, 2015
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
 <p>本文由 伯乐在线 - Namco 翻译，wrm 校稿。未经许可，禁止转载！<br>英文出处：Laurent Luce。欢迎加入翻译组。</p>
 </blockquote>
 <p>深入 Python 整数对象的实现 <strong><a href="http://www.laurentluce.com/posts/python-integer-objects-implementation/">阅读原文 »</a></strong></p>
 <p>本文会深入探究 在Python 内部整数对象是如何实现的。</p>
-<p>在 Python 内部，一个整数对象是用 PyIntObject 结构来表示的，该整数对象的值属性为 long 型。<br></div><a href="/2015-11-21-realization-of-integer-object-of-python.html" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h1 class="post-title"><a href="/2015-11-19-Python-running-patch-method.html" class="post-link">Python 的运行时方法补丁技术</a></h1><span class="post-time">Jun 12, 2016</span><div class="post-content"><blockquote>
+<p>在 Python 内部，一个整数对象是用 PyIntObject 结构来表示的，该整数对象的值属性为 long 型。<br>
+          <div class="read-more">
+            <a href="/2015-11-21-realization-of-integer-object-of-python.html" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015-11-19-Python-running-patch-method.html">Python 的运行时方法补丁技术</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Nov 19, 2015
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
 <p>本文由 伯乐在线 - Namco 翻译，赖信涛 校稿。未经许可，禁止转载！<br>英文出处：blog.tryolabs.com。欢迎加入翻译组。</p>
 </blockquote>
-<p>相信很多朋友在编程的时候都会想修改一下已经写好的程序行为代码，而最常见的方式就是通过子类来重写父类的一些不满足需求的方法。比如说下面这个例子。</p></div><a href="/2015-11-19-Python-running-patch-method.html" class="read-more">Read more..</a></article></li></ul><div class="paginator"></div></section><footer><div class="social"><a href="mailto:namco1992@gmail.com" class="iconfont icon-email"> </a><a href="https://github.com/namco1992" class="iconfont icon-github"> </a><a href="/atom.xml" class="iconfont icon-rss"> </a></div><div class="copyright"><p>&copy;2015-2016<span class="heart"><i class="fa fa-heart"></i></span><a href="http://yoursite.com" class="author">namco</a></p></div><label id="back2top"><i class="fa fa-chevron-up"></i></label></footer></div></body><script src="/js/back2top.js"></script></html>
+<p>相信很多朋友在编程的时候都会想修改一下已经写好的程序行为代码，而最常见的方式就是通过子类来重写父类的一些不满足需求的方法。比如说下面这个例子。</p>
+          <div class="read-more">
+            <a href="/2015-11-19-Python-running-patch-method.html" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+    
+  </nav>
+
+
+          </div>
+          
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:namco1992@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/namco1992" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">namco</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = '';
+        this.page.identifier = 'index.html';
+        this.page.title = '';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//namcos-blog.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.2.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.2.x"></script>
+
+  </body>
+</html>
